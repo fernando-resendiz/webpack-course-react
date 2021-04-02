@@ -1,7 +1,7 @@
 const path = require("path");
 const HmtlWebpackPlugin = require("html-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const { Http2ServerRequest } = require("http2");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
   entry: "./src/index.js",
@@ -27,12 +27,19 @@ module.exports = {
           loader: "html-loader",
         },
       },
+      {
+        test: /\.s[ac]ss$/,
+        use: ["style-loader", "css-loader", "sass-loader"],
+      },
     ],
   },
   plugins: [
-    new HtmlWebpackPlugin({
+    new HmtlWebpackPlugin({
       template: "./public/index.html",
       filename: "./index.html",
+    }),
+    new MiniCssExtractPlugin({
+      filename: "[name].css",
     }),
   ],
   devServer: {
