@@ -11,13 +11,12 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, "dist"),
     filename: "main.js",
-    publicPath: "/",
   },
   resolve: {
     extensions: [".js", ".jsx"],
     alias: {
       '@components': path.resolve(__dirname, "src/components/"),
-      '@styles': path.resolve(__dirname, "src/sytles/"),
+      '@styles': path.resolve(__dirname, "src/styles/"),
     },
   },
   mode: 'production',
